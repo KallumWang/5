@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpy511rue6014"]
+
+[ext_resource type="Texture2D" uid="uid://bc7kjbs8ymic6" path="res://sprites/Colour2/NoOutline/120x80_PNGSheets/_CrouchAll.png" id="1_2hyix"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjbkn"]
+atlas = ExtResource("1_2hyix")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpn2d"]
+atlas = ExtResource("1_2hyix")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5irj"]
+atlas = ExtResource("1_2hyix")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87re6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjbkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpn2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5irj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_87re6")
+frame = 1
+frame_progress = 0.75

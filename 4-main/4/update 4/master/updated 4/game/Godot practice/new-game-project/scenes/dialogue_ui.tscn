@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://jc68a8df5n33"]
+
+[ext_resource type="Theme" uid="uid://dv0cg7hfn5oc8" path="res://themes/Dialogue theme.tres" id="1_h17cg"]
+[ext_resource type="Script" path="res://script/dialogue_ui.gd" id="2_4hi6b"]
+[ext_resource type="FontFile" path="res://assets/_fonts__phoenix_wright_ace_attorney_logo_font_pack_by_rapbattleeditor0510_ddh3mo4/DFPYaSongW9-GB5-02.ttf" id="2_yqmtg"]
+[ext_resource type="Script" path="res://scenes/next_button.gd" id="4_gd1pl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6eovl"]
+font = ExtResource("2_yqmtg")
+font_size = 25
+
+[node name="Dialogue UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h17cg")
+script = ExtResource("2_4hi6b")
+
+[node name="Dialogue box" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -174.0
+offset_right = 575.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueLine" type="RichTextLabel" parent="Dialogue box"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave]This is a line of [shake]dialogue[/shake][wave]"
+
+[node name="speaker box" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+offset_right = 200.0
+offset_bottom = -173.0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="speaker box"]
+position = Vector2(0, -1)
+color = Color(0.333333, 0.537255, 1, 0.588235)
+polygon = PackedVector2Array(0, 0, 180, 0, 200, 50, 0, 50)
+
+[node name="SpeakerLabel" type="Label" parent="speaker box"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_6eovl")
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -68.0
+grow_horizontal = 0
+grow_vertical = 0
+shortcut_context = NodePath("NextButton/Polygon2D")
+
+[node name="NextButton" type="Area2D" parent="Control"]
+script = ExtResource("4_gd1pl")
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/NextButton"]
+position = Vector2(17, 12)
+polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/NextButton"]
+position = Vector2(17, 12)
+polygon = PackedVector2Array(0, 0, 0, 40, 18, 31, 40, 20)
+
+[connection signal="input_event" from="Control/NextButton" to="." method="_on_next_button_input_event"]
+[connection signal="input_event" from="Control/NextButton" to="." method="_on_area_2d_input_event"]
