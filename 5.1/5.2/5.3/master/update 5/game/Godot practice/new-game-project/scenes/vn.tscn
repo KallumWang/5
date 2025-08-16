@@ -30,7 +30,7 @@ grow_horizontal = 2
 
 [node name="Character" parent="CanvasLayer/CanvasLayer2/Control" instance=ExtResource("2_a3kmd")]
 unique_name_in_owner = true
-position = Vector2(20, 21)
+position = Vector2(-13, 265)
 rotation = -6.28319
 
 [node name="DialogueUI" parent="CanvasLayer/CanvasLayer2" instance=ExtResource("3_aa5a4")]

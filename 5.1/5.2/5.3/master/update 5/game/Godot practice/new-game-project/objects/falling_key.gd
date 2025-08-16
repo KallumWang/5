@@ -6,7 +6,7 @@ var init_y_pos: float = -360
 
 # true if falling key has passed the allowed input frame
 var has_passed: bool = false
-var pass_threshold = 350.0
+var pass_threshold = 230.0
 
 func _init():
 	set_process(false)
@@ -32,3 +32,8 @@ func Setup(target_x: float, target_frame: int):
 
 func _on_destroy_timer_timeout():
 	queue_free()
+	
+func _draw():
+	draw_line(Vector2(-20, pass_threshold - global_position.y),
+			  Vector2(20, pass_threshold - global_position.y),
+			  Color.RED, 2)
