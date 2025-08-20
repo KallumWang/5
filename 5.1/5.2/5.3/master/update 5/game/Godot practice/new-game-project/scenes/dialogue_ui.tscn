@@ -1,12 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://jc68a8df5n33"]
+[gd_scene load_steps=5 format=3 uid="uid://jc68a8df5n33"]
 
 [ext_resource type="Theme" uid="uid://dv0cg7hfn5oc8" path="res://themes/Dialogue theme.tres" id="1_h17cg"]
 [ext_resource type="Script" path="res://script/dialogue_ui.gd" id="2_4hi6b"]
-[ext_resource type="FontFile" path="res://assets/_fonts__phoenix_wright_ace_attorney_logo_font_pack_by_rapbattleeditor0510_ddh3mo4/DFPYaSongW9-GB5-02.ttf" id="2_yqmtg"]
 [ext_resource type="Script" path="res://scenes/next_button.gd" id="4_gd1pl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6eovl"]
-font = ExtResource("2_yqmtg")
 font_size = 25
 
 [node name="Dialogue UI" type="Control"]

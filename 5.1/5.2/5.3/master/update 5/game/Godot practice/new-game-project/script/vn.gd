@@ -15,7 +15,7 @@ func _ready():
 	if dialogue_ui:
 		dialogue_ui.connect("next_pressed", Callable(self, "_on_dialogue_ui_next_pressed"))
 	else:
-		push_error("❌ DialogueUI not found")
+		push_error("DialogueUI not found")
 
 	if speaker_label and dialogue_label:
 		process_line(parse_line(dialog_lines[dialogue_index]))
@@ -35,9 +35,9 @@ func process_line(line_info: Dictionary) -> void:
 	dialogue_label.append_text(line_info["dialogue_line"])
 
 func _on_dialogue_ui_next_pressed():
-	print("📖 Advancing dialogue")
+	print("Advancing dialogue")
 	if dialogue_index < dialog_lines.size() - 1:
 		dialogue_index += 1
 		process_line(parse_line(dialog_lines[dialogue_index]))
 	else:
-		print("✅ Dialogue finished")
+		print("Dialogue finished")
